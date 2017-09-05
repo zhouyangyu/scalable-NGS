@@ -1,0 +1,6 @@
+{
+  "MarkDuplicatesWorkflow.MarkDuplicates.gatk_home": "/home/jozhou17/gatk",
+  "MarkDuplicatesWorkflow.MarkDuplicates.input_bam": "gs://scalable-ngs-data/ERR251009.sorted.bam",
+  "MarkDuplicatesWorkflow.MarkDuplicates.output_bam": "gs://scalable-ngs-data/ERR251009.dupMarked.bam",
+  "MarkDuplicatesWorkflow.MarkDuplicates.metrics_filename": "gs://scalable-ngs-data/ERR251009.metrics.txt"
+}
