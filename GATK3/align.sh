@@ -8,23 +8,26 @@
 
 # user parameter: define sample base name, without any extension
 # for example base name for raw read file ERR00001_1.fastq is ERR00001
+
 SAMPLE_BASE_NAME = "ERR00001"
+
+# file names
+FASTQ1="${SAMPLE_BASE_NAME}_1.fastq"
+FASTQ2="${SAMPLE_BASE_NAME}_2.fastq"
+ALIGNED_BAM="${SAMPLE_BASE_NAME}.bam"
+HEAD_FILE="${SAMPLE_BASE_NAME}.headfile.txt"
+REFERENCE="ref.fa"
 
 # Software needed
 BWA="/path/to/bwa.kit/bwa"
 SAMTOOLS="/path/to/samtools"
 
-
-FASTQ1="${SAMPLE_BASE_NAME}_1.fastq"
-FASTQ2="{SAMPLE_BASE_NAME}_2.fastq"
-REFERENCE="ref.fa"
-
 # Note: no more than 2 threads per CPU core
 $BWA mem -t 4 $REFERENCE $FASTQ1 $FASTQ2 | \
-	$SAMTOOLS view -b > "${SAMPLE_BASE_NAME}.bam"
+	$SAMTOOLS view -b > ALIGNED_BAM
 
 # Create head file
-$SAMTOOLS view -H "${SAMPLE_BASE_NAME}.bam" > "${SAMPLE_BASE_NAME}.headfile.txt"
+$SAMTOOLS view -H $ALIGNED_BAM > HEAD_FILE
 
 
 
